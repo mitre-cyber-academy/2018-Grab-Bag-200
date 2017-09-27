@@ -37,35 +37,9 @@ facing = 0;
 microIndex = 0; 
 global.playerX = 0;
 global.playerY = 0;
-global.playerXiso = 0;
-global.playerYiso = 0
 typeOfHittable = 0;
 lastCommand = "";
 
-
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>idd = instance_create(x,y,deadPlayer)
 
 </string>
           </argument>
@@ -89,53 +63,22 @@ lastCommand = "";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//alow zooming and unzooming
-if(mouse_wheel_up() == true)
-{
-    view_wview[0] -=40
-    view_wview[0] = max(view_wview[0],200)//actually min
-    view_hview[0] = view_wview[0]/1.7142
-    moved = true;
-}
-if(mouse_wheel_down() == true)
-{
-    view_wview[0] +=40
-    view_wview[0] = min(view_wview[0],1200)//actually max
-    view_hview[0] = view_wview[0]/1.7142
-    moved = true;
-}
-///center the view on the player
-if(moved == true)
-{
-    view_xview[0] = isox-((view_wview[0]*global.phoneToScreenRatio)/2)   
-    view_yview[0] = isoy-(height/2)-((view_hview[0])/2)  
-    moved = false;
-} 
+            <string>gotoX = global.playerX
+gotoY = global.playerY
 ////set all the walls to solid for collision detection
 with(o_tile){solid=true}
 with(carObject){if(speed &lt; 1){solid=true}}
-// point player at mouse
-image_angle = point_direction(isox,isoy,mouse_x,mouse_y)
-distanceToMouse = point_distance(isox,isoy,mouse_x,mouse_y)
+// point dude
+
+walkingSpeed = 3;
+image_angle = point_direction(x,y,gotoX,gotoY)
 facing = round(image_angle/45)+90;
 facing = (facing*3)+1
-// when mouse is clicked moved towards it
-relativeMouseX = mouse_x-view_xview[0];
-if(mouse_check_button(mb_left) == 1)
-{
-  if(relativeMouseX &lt; (view_wview[0]*global.phoneToScreenRatio) &amp;&amp; distanceToMouse &gt; 4)
-  {
-    spd = 4;
-    lenX = lengthdir_x(spd,image_angle+45)
-    lenY = lengthdir_y(spd,image_angle+45)
-    if ( place_free(x+lenX,y+lenY) )
-    {
-      x+=lenX;
-      y+=lenY;
-      moved = true;
-    }
-  }
-}
+
+//mp_potential_settings(45, 5, 5, 0)
+mp_potential_step_object(gotoX,gotoY, walkingSpeed, o_tile);
+
+
 if(moved == true)
 {
     microIndex+=.5
@@ -147,21 +90,18 @@ if(moved == true)
 
 with(all){solid=false} // reset all walls to being not solid
 depth=-(x+y)
-global.playerX = x;
-global.playerY = y;
 
 
-
-if(loiterDetector.distanceToPlayer &lt; 100)
+if(instance_exists(o_player))
 {
-    if( !instance_exists(storeOwner) )
+    if(distance_to_object(o_player) &lt; 30)
     {
-        instance_create(750,275,storeOwner)
+        instance_destroy()
+        o_player.x = 500
+        o_player.y = 1125
+        o_player.moved = true;
     }
 }
-
-
-
 
 
 </string>
@@ -188,6 +128,7 @@ if(loiterDetector.distanceToPlayer &lt; 100)
             <kind>1</kind>
             <string>if(other.path_speed || other.speed &gt; 2 )
 {
+    idd = instance_create(x,y,deadOwner)
     instance_destroy()
 }
 </string>
@@ -221,9 +162,7 @@ if global.isoview=true
 {
     isox=get_iso_x(x,y)
     isoy=get_iso_y(x,y)
-    global.playerXiso = isox;
-    global.playerYiso = isoy;
-    draw_sprite(s_iso_player,image_index,isox,isoy)
+    draw_sprite(spriteSomeOtherGuy,image_index,isox,isoy)
 }
 
 </string>

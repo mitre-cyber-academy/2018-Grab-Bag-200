@@ -15,8 +15,10 @@
     <sprite>sprites\spriteCar</sprite>
     <sprite>sprites\maskCar</sprite>
     <sprite>sprites\s_iso_player</sprite>
+    <sprite>sprites\spriteSomeOtherGuy</sprite>
     <sprite>sprites\wastedImage</sprite>
     <sprite>sprites\s_iso_playerDead</sprite>
+    <sprite>sprites\s_iso_ownerDead</sprite>
     <sprite>sprites\batteryIcon</sprite>
     <sprite>sprites\spritePhoneIcons</sprite>
     <sprite>sprites\spriteHome</sprite>
@@ -58,6 +60,7 @@
       <script>scripts\println.gml</script>
       <script>scripts\found.gml</script>
       <script>scripts\interpretCommad.gml</script>
+      <script>scripts\phoneOS.gml</script>
       <script>scripts\phoneHomeScreen.gml</script>
       <script>scripts\phoneTerminal.gml</script>
     </scripts>
@@ -84,11 +87,14 @@
       <object>objects\objConcrete</object>
       <object>objects\objRoad</object>
     </objects>
+    <object>objects\loiterDetector</object>
     <object>objects\carObject</object>
     <object>objects\gasStationBuilding</object>
     <object>objects\gasPump</object>
     <object>objects\o_player</object>
+    <object>objects\storeOwner</object>
     <object>objects\deadPlayer</object>
+    <object>objects\deadOwner</object>
     <object>objects\o_control</object>
   </objects>
   <rooms name="rooms">

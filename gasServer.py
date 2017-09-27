@@ -10,18 +10,12 @@ class MyHandler(BaseHTTPRequestHandler):
         self.send_header("Content-type", "text/html")
         self.end_headers()   
         print((self.path).upper() )
-        if self.path.upper() == '/CONNECT/F3:00:A4:D2:AF:E9':
-	        self.wfile.write("Connected to F3:00:A4:D2:AF:E9")
+        if self.path.upper() == '@F3:00:A4:D2:AF:E9$help':
+	        self.wfile.write("no help for you")
 	        sentStuff = 1
-        if self.path.upper().find("/CONNECT/") is not -1 and sentStuff == 0:
-	        output = "Unknown Device "+self.path
-	        output = output.replace("/", "")
-	        output = output.replace("connect", "")
-	        self.wfile.write(output)	
-	        sentStuff = 1
+
         if sentStuff == 0:
-	        output = "Unknown Command "+self.path
-	        output = output.replace("/", "")
+	        output = " "
 	        self.wfile.write(output)	    	
 	        
 

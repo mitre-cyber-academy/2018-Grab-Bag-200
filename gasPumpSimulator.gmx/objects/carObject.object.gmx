@@ -114,7 +114,7 @@ pumpsIDontLike = ds_list_create();
           <argument>
             <kind>1</kind>
             <string>stopping = 0;
-
+peopleInFrontOfMe = 0;
     for(i = 0; i &lt; instance_number(thingsICanHit); i+=1)
     {
          idd = instance_find(thingsICanHit,i)
@@ -143,22 +143,21 @@ pumpsIDontLike = ds_list_create();
                             if(path_speed &lt; 0){path_speed = 0;}
                             stopping = 1;
                         }
-                        if(instance_exists(o_player))
+                        if(idd.typeOfHittable == 0 &amp;&amp; peopleInFrontOfMe = 0) // player or people not car
                         {
-                            if(idd == o_player.id)
-                            {   
-                                pissedOff+=1;//notAngry
-                                if(pissedOff &gt; 200){notAngry = false;}
-                                if(pissedOff &gt; 100)
-                                {
-                                    if(!audio_is_playing(soundMove)){audio_play_sound(soundMove,-1,-1)}
-                                }
-                                if(current_time-myLastHonk &gt; 4000)
-                                {
-                                    audio_play_sound(myHonkSound,-1,-1)
-                                    myLastHonk = current_time;
-                                }
+                            peopleInFrontOfMe+=1
+                            pissedOff+=1;//notAngry
+                            if(pissedOff &gt; 200){notAngry = false;}
+                            if(pissedOff &gt; 100)
+                            {
+                                if(!audio_is_playing(soundMove)){audio_play_sound(soundMove,-1,-1)}
                             }
+                            if(current_time-myLastHonk &gt; 4000)
+                            {
+                                audio_play_sound(myHonkSound,-1,-1)
+                                myLastHonk = current_time;
+                            }
+                            
                         }
                     }
                     

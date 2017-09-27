@@ -304,6 +304,7 @@
     <instance objName="objConcrete" x="200" y="910" name="inst_8DA467DE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objConcrete" x="110" y="910" name="inst_B6FD3D79" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="objConcrete" x="110" y="1010" name="inst_05D1EB4C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="loiterDetector" x="90" y="125" name="inst_BA7258D0" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
