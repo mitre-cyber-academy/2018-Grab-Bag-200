@@ -30,6 +30,19 @@ y = gasStationBuilding.y
 distanceToPlayer = 1000;
 speed = .25
 buildingSDistanceToPlayer = 1000;
+lastTimeOfPlayerMoved = current_time;
+storeGuy = -1;
+
+
+
+
+
+
+
+
+
+
+
 </string>
           </argument>
         </arguments>
@@ -91,30 +104,31 @@ else
 }
 distanceToPlayer = point_distance(x,y,global.playerX,global.playerY)
 
+if(global.playerX != global.lastPlayerX || global.playerY != global.lastPlayerY)
+{
+    lastTimeOfPlayerMoved = current_time
+}
+
+if(distanceToPlayer &lt; 100 &amp;&amp; current_time-lastTimeOfPlayerMoved &gt; 30000)
+{
+    if( !instance_exists(storeOwner) )
+    {
+        storeGuy = instance_create(750,275,storeOwner)
+    }
+    else{storeGuy.goto = 0;}
+}
+if(distanceToPlayer &gt; 150)
+{
+    if(instance_exists(storeGuy) )
+    {
+        storeGuy.goto = 1;
+    }
+}
+
+
+
 alarm[0] = 30;
 </string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
           </argument>
         </arguments>
       </action>

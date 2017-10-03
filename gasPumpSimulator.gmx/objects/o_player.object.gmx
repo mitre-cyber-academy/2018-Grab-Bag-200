@@ -147,18 +147,15 @@ if(moved == true)
 
 with(all){solid=false} // reset all walls to being not solid
 depth=-(x+y)
+
+global.lastPlayerX = global.playerX;
+global.lastPlayerY = global.playerY;
 global.playerX = x;
 global.playerY = y;
 
 
 
-if(loiterDetector.distanceToPlayer &lt; 100)
-{
-    if( !instance_exists(storeOwner) )
-    {
-        instance_create(750,275,storeOwner)
-    }
-}
+
 
 
 

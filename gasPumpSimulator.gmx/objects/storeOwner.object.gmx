@@ -39,7 +39,7 @@ global.playerX = 0;
 global.playerY = 0;
 typeOfHittable = 0;
 lastCommand = "";
-
+goto = 0;
 
 </string>
           </argument>
@@ -63,8 +63,16 @@ lastCommand = "";
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>gotoX = global.playerX
-gotoY = global.playerY
+            <string>if(goto == 0)
+{
+    gotoX = global.playerX
+    gotoY = global.playerY
+}
+if(goto == 1)
+{
+    gotoX = gasStationBuilding.x
+    gotoY = gasStationBuilding.y
+}
 ////set all the walls to solid for collision detection
 with(o_tile){solid=true}
 with(carObject){if(speed &lt; 1){solid=true}}
