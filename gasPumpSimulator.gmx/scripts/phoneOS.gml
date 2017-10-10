@@ -12,8 +12,11 @@ if( found("scan",input) == true )
     }
     else if( found("wifi",input) == true )
     {
+        with(wifiDevice){alarm[0] = 10+round(random(120))}
+        numOfDevicesAtTime = instance_number(wifiDevice)
+        global.wifiScancheck = 0;
         return
-        ("Scanning for WiFi devices")
+        ("Scanning for WiFi devices#----------------------------")
     }  
     else
     {
@@ -47,9 +50,17 @@ else if( found("date",input) == true )
 {
     return(string(current_month)+":"+string(current_day)+":"+string(current_year))
 }
+else if( found("help",input) == true )
+{
+    println("time: Prints the time");
+    println("date: Prints the date");
+    println("connect: connects to device");
+    println("scan: scans network cards");
+    return("---------------------------")
+}
 else
 {
-    return("command not found")
+    return("command not found, type help for help")
 }
 
 return("command not found")

@@ -60,12 +60,22 @@ class MyHandler(BaseHTTPRequestHandler):
         		flashString = flashMemory[int(m.group(1)) % len(flashMemory)]
         		returnbit = flashString[int(m.group(2)) % len(flashString)]
 	        self.wfile.write(returnbit )
-	        sentStuff = 1	   
+	        sentStuff = 1	
 
+        if self.path.upper()[:20] == '/@91:46:8D:E0:22:04$': # GENERICO ROOTER
+	        self.wfile.write("<b>401 unauthorized</b>")
+	        sentStuff = 1	
+        if self.path.upper()[:20] == '/@70:E3:DF:4C:F3:DD$': # RAGTEN
+	        self.wfile.write("<b>401 unauthorized</b>")
+	        sentStuff = 1	
+        if self.path.upper()[:20] == '/@9A:7F:4A:A0:9B:A3$': # RAGTEN GUEST
+	        self.wfile.write("Pin is incorect")
+	        sentStuff = 1		        
         if sentStuff == 0:
 	        output = " "
 	        self.wfile.write(output)	    	
 	        
+
 
 
 httpd = SocketServer.TCPServer(("", 8080), MyHandler)

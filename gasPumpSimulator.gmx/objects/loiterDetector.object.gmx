@@ -115,13 +115,14 @@ if(distanceToPlayer &lt; 100 &amp;&amp; current_time-lastTimeOfPlayerMoved &gt; 
     {
         storeGuy = instance_create(750,275,storeOwner)
     }
-    else{storeGuy.goto = 0;}
+    else{storeGuy.goto = 0;} // go towards player
+     if(!audio_is_playing(sound5_stopLoiteruing)){audio_play_sound(sound5_stopLoiteruing,-1,-1)}
 }
 if(distanceToPlayer &gt; 150)
 {
     if(instance_exists(storeGuy) )
     {
-        storeGuy.goto = 1;
+        storeGuy.goto = 1; // back to gas station
     }
 }
 

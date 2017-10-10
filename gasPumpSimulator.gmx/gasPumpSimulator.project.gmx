@@ -10,6 +10,7 @@
     <sound>sound\soundHornHonk2</sound>
     <sound>sound\soundHornHonk1</sound>
     <sound>sound\soundMove</sound>
+    <sound>sound\sound5_stopLoiteruing</sound>
   </sounds>
   <sprites name="sprites">
     <sprite>sprites\spriteCar</sprite>
@@ -75,9 +76,11 @@
   <fonts name="fonts">
     <font>fonts\normalFont</font>
     <font>fonts\largeFont</font>
+    <font>fonts\batteryFont</font>
   </fonts>
   <objects name="objects">
     <object>objects\bluethoothDevice</object>
+    <object>objects\wifiDevice</object>
     <object>objects\thingsICanHit</object>
     <object>objects\grayScaleShader</object>
     <objects name="walls">
