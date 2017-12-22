@@ -332,17 +332,17 @@
     <option_ios_texture_page>1024</option_ios_texture_page>
     <option_ios_use_test_ads>0</option_ios_use_test_ads>
     <option_lastchanged></option_lastchanged>
-    <option_linux_display_name>Iso Project</option_linux_display_name>
+    <option_linux_display_name>gasStationSim</option_linux_display_name>
     <option_linux_enable_steam>0</option_linux_enable_steam>
     <option_linux_fullscreen>0</option_linux_fullscreen>
-    <option_linux_homepage>http://www.Iso_Project.com</option_linux_homepage>
+    <option_linux_homepage></option_linux_homepage>
     <option_linux_icon>Configs\Default\linux\icon64.png</option_linux_icon>
     <option_linux_interpolate>-1</option_linux_interpolate>
-    <option_linux_long_desc>Iso Project</option_linux_long_desc>
+    <option_linux_long_desc>gasStationSim</option_linux_long_desc>
     <option_linux_maintainer_email></option_linux_maintainer_email>
     <option_linux_scale>-1</option_linux_scale>
     <option_linux_screenkey>-1</option_linux_screenkey>
-    <option_linux_short_desc>Iso Project</option_linux_short_desc>
+    <option_linux_short_desc></option_linux_short_desc>
     <option_linux_sizeable>0</option_linux_sizeable>
     <option_linux_splash_png>Configs\Default\linux\splash.png</option_linux_splash_png>
     <option_linux_steam_app_id>0</option_linux_steam_app_id>
