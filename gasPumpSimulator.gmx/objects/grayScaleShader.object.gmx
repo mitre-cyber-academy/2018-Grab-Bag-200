@@ -68,7 +68,10 @@ view_surface_id[0] = surf;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if(var_greyscale_fade &lt; 1){var_greyscale_fade+=.05}
+            <string>
+if(surface_exists(surf))
+{
+if(var_greyscale_fade &lt; 1){var_greyscale_fade+=.05}
 shader_set(shd_greyscale);
     shader_set_uniform_f(uni_time, var_time_var);
     shader_set_uniform_f(uni_mouse_pos, var_mouse_pos_x, var_mouse_pos_y);
@@ -76,6 +79,7 @@ shader_set(shd_greyscale);
     shader_set_uniform_f(uni_greyscale_fade, var_greyscale_fade);
     draw_surface_stretched(surf,0,0,o_control.bottomX,o_control.bottomY );
 shader_reset();
+}
 </string>
           </argument>
         </arguments>
